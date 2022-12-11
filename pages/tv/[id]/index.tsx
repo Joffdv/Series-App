@@ -10,7 +10,7 @@ export default function Movie({ tv }) {
       <div className="px-3">
         <Image src={`https://image.tmdb.org/t/p/original${tv.backdrop_path}`} width={1000} height={600} className="rounded-md" alt={tv.title} />
         <h1 className="font-bold text-xl my-2">{tv.name}</h1>
-        <p className="text-gray-600 text-sm">Seasons: <span className="font-bold">{tv.number_of_seasons}</span></p>
+        <p className="text-gray-600 text-sm">{tv.number_of_seasons === 1 ? "Season: ": "Seasons: "} <span className="font-bold">{tv.number_of_seasons}</span></p>
         <p className="text-gray-600 text-sm">Episodes: <span className="font-bold">{tv.number_of_episodes}</span></p>
         <p className="text-gray-600 text-sm mt-4">{tv.overview}</p>
         <p className="mt-5 text-gray-600 text-sm">Genres: <span className="font-bold">{tv.genres.map(genre => genre.name).join(', ')}</span></p>
