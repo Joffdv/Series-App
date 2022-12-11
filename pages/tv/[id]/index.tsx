@@ -2,6 +2,7 @@ import axios from 'axios'
 import { server } from '../../../config'
 import Image from 'next/image'
 import Meta from '../../../components/Meta'
+import SeasonCards from '../../../components/SeasonCards'
 
 export default function Movie({ tv }) {
   return (
@@ -15,6 +16,7 @@ export default function Movie({ tv }) {
         <p className="text-gray-600 text-sm mt-4">{tv.overview}</p>
         <p className="mt-5 text-gray-600 text-sm">Genres: <span className="font-bold">{tv.genres.map(genre => genre.name).join(', ')}</span></p>
         <p className="text-gray-600 text-sm">Release Date: <span className="font-bold">{tv.first_air_date}</span></p>
+        <SeasonCards seasonCards={tv.seasons} tv={tv}/>
       </div>
     </div>
   )
