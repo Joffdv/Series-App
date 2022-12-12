@@ -21,7 +21,7 @@ export default function SeasonInfo({ SeasonDetail, tvID}) {
                 <Link href="/tv/[id]/season/[seasonid]/[epid]" as={`/tv/${tvID}/season/${SeasonDetail.season_number}/${index+1}`}>
                   <a key={index+2} className="flex flex-col">
                     <Image key={index+3} className="hover:opacity-70" src={'/HIYYPtZ_d.webp'} alt={element.name} width={1000} height={600} />
-                    <p key={index+4} className="bg-zinc-800 max-w-full break-words text-gray-300 text-sm leading-0 font-semibold py-2">{SeasonDetail.season_number} x {index+1} : {element.name}</p>
+                    <p key={index+4} className="bg-gray-700 max-w-full break-words text-white text-sm md:text-lg md:py-5 leading-0 font-semibold py-2">{SeasonDetail.season_number} x {index+1} : {element.name}</p>
                   </a>
                 </Link>
               </div>
