@@ -12,7 +12,7 @@ export default function SeasonCards({ seasonCards, tv }) {
                     <div className="rounded-md overflow-hidden">
                         <Link key={index} href="/tv/[id]/season/[seasonid]" as={`/tv/${tvDetail.id}/season/${season.season_number}`}>
                         <a title={season.name}>
-                        <Image className="w-full hover:opacity-70" title={season.name} src={`https://i.imgur.com/wjVuAGb.png`} alt={season.name} width={1500} height={2250}/>
+                        <Image className="w-full hover:opacity-70" title={season.name} src={'/wjVuAGb_d.webp'} alt={season.name} width={1500} height={2250}/>
                         <div className="flex text-gray-600 justify-center text-xl leading-0 font-semibold py-2">{season.name}</div>
                         </a>
                         </Link>
