@@ -14,7 +14,8 @@ export default function Movie({ tv }) {
         <p className="text-gray-600 text-sm">{tv.number_of_seasons === 1 ? "Season: ": "Seasons: "} <span className="font-bold">{tv.number_of_seasons}</span></p>
         <p className="text-gray-600 text-sm">Episodes: <span className="font-bold">{tv.number_of_episodes}</span></p>
         <p className="text-gray-600 text-sm mt-4">{tv.overview}</p>
-        <p className="mt-5 text-gray-600 text-sm">Genres: <span className="font-bold">{tv.genres.map(genre => genre.name).join(', ')}</span></p>
+        <p className="mt-5 text-gray-600 text-sm">Creators: <span className="font-bold">{tv.created_by.map(created_by => created_by.name).join(', ')}</span></p>
+        <p className="text-gray-600 text-sm">Genres: <span className="font-bold">{tv.genres.map(genre => genre.name).join(', ')}</span></p>
         <p className="text-gray-600 text-sm">Release Date: <span className="font-bold">{tv.first_air_date}</span></p>
         <SeasonCards seasonCards={tv.seasons} tv={tv}/>
       </div>
