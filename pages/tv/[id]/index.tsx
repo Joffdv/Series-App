@@ -1,10 +1,12 @@
 import axios from 'axios'
 import { server } from '../../../config'
+import { fetchFilmCast } from '../../api/cast_api'
 import Image from 'next/image'
 import Meta from '../../../components/Meta'
+import Cast from '../../../components/Cast'
 import SeasonCards from '../../../components/SeasonCards'
 
-export default function Movie({ tv }) {
+export default function Movie({ tv, cast }) {
   return (
     <div className="container max-w-4xl mx-auto pt-6">
       <Meta title={tv.name} />
@@ -17,7 +19,8 @@ export default function Movie({ tv }) {
         <p className="mt-5 text-gray-600 text-sm">Creators: <span className="font-bold">{tv.created_by.map(created_by => created_by.name).join(', ')}</span></p>
         <p className="text-gray-600 text-sm">Genres: <span className="font-bold">{tv.genres.map(genre => genre.name).join(', ')}</span></p>
         <p className="text-gray-600 text-sm">Release Date: <span className="font-bold">{tv.first_air_date}</span></p>
-        <SeasonCards seasonCards={tv.seasons} tv={tv}/>
+        <Cast cast={cast} />
+        <SeasonCards seasonCards={tv.seasons} tv={tv} />
       </div>
     </div>
   )
@@ -26,10 +29,11 @@ export default function Movie({ tv }) {
 export async function getStaticProps(context) {
   const { id } = context.params;
   const res = await axios(`${server}/${id}?api_key=${process.env.API_KEY}&language=en-US&page=1`);
+  const { cast } = await fetchFilmCast(id);
   const tv = res.data;
 
   return {
-    props: { tv }
+    props: { tv, cast }
   }
 }
 
@@ -45,3 +49,6 @@ export async function getStaticPaths() {
     fallback: false
   }
 }
+
+
+        
